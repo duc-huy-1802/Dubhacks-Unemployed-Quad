@@ -2,6 +2,9 @@ import React from "react";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
+import Report from "./sections/Report";
+import Volunteer from "./sections/Volunteer";
+import Map from "./sections/Map";
 import Projects from "./sections/Projects";
 import Physics from "./sections/Physics";
 import Education from "./sections/Education";
@@ -18,6 +21,9 @@ return (
 <Navbar />
 <Hero />
 <About />
+<Report />
+<Volunteer />
+<Map />
 <Projects />
 <Physics />
 <Education />

@@ -18,6 +18,8 @@ export const myProjects = [
     href: "", // add your live URL
     logo: "",
     image: "/assets/projects/portfolio.jpg", // optional: replace with an existing image in your repo
+    // Interactive Google Map embed (example uses Seattle). Replace with a specific embed URL if desired.
+    mapSrc: "https://www.google.com/maps?q=Seattle&output=embed",
     tags: [
       { id: 1, name: "React", path: "/assets/logos/react.svg" },
       { id: 2, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },

@@ -6,7 +6,6 @@ import Report from "./sections/Report";
 import Volunteer from "./sections/Volunteer";
 import Map from "./sections/Map";
 import Projects from "./sections/Projects";
-import Physics from "./sections/Physics";
 import Education from "./sections/Education";
 import Research from "./sections/Research";
 import Experiences from "./sections/Experiences";
@@ -25,7 +24,6 @@ return (
 <Volunteer />
 <Map />
 <Projects />
-<Physics />
 <Education />
 <Research />
 <Experiences />

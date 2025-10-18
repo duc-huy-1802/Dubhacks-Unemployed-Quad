@@ -5,11 +5,10 @@ function Navigation({ onNavigate }) {
   return (
     <ul className="nav-ul">
       <li className="nav-li"><a className="nav-link" href="#home" onClick={onNavigate}>Home</a></li>
-      <li className="nav-li"><a className="nav-link" href="#projects" onClick={onNavigate}>Projects</a></li>
+  <li className="nav-li"><a className="nav-link" href="#projects" onClick={onNavigate}>Learn more</a></li>
       <li className="nav-li"><a className="nav-link" href="#report" onClick={onNavigate}>Report</a></li>
       <li className="nav-li"><a className="nav-link" href="#volunteer" onClick={onNavigate}>Volunteer</a></li>
       <li className="nav-li"><a className="nav-link" href="#map" onClick={onNavigate}>Map</a></li>
-      <li className="nav-li"><a className="nav-link" href="#physics" onClick={onNavigate}>Physics</a></li>
       <li className="nav-li"><a className="nav-link" href="#education" onClick={onNavigate}>Education</a></li>
       <li className="nav-li"><a className="nav-link" href="#research" onClick={onNavigate}>Research</a></li>
       <li className="nav-li"><a className="nav-link" href="#work" onClick={onNavigate}>Work</a></li>

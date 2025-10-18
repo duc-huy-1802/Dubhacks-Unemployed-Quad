@@ -1,7 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import HeroText from "../components/HeroText";
 import ParallaxBackground from "../components/ParallaxBackground";
-import { Buddha } from "../components/Buddha";
 import { Float } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 import { easing } from "maath";
@@ -21,7 +20,6 @@ const Hero = () => {
         <Canvas camera={{ position: [0, 1, 3] }}>
           <Suspense fallback={<Loader />}>
             <Float>
-              <Buddha scale={scale} position={position} />
             </Float>
             <Rig />
           </Suspense>

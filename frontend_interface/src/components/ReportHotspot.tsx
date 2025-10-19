@@ -17,6 +17,7 @@ export function ReportHotspot({ onNavigate }: ReportHotspotProps) {
     location: '',
     description: '',
     coordinates: '',
+    severity: 'moderate' as 'critical' | 'high' | 'moderate',
   });
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -45,7 +46,7 @@ export function ReportHotspot({ onNavigate }: ReportHotspotProps) {
           location: formData.location || 'New Location',
           lat: coords.lat,
           lng: coords.lng,
-          severity: 'moderate',
+          severity: formData.severity,
           areaLost: 0,
           description: formData.description || 'New report location'
         });
@@ -83,7 +84,7 @@ export function ReportHotspot({ onNavigate }: ReportHotspotProps) {
           <div className="flex flex-col gap-3">
             <Button
               onClick={() => {
-                setFormData({ location: '', description: '', coordinates: '' });
+                setFormData({ location: '', description: '', coordinates: '', severity: 'moderate' });
                 setSelectedFile(null);
                 setPreviewHotspot(null);
                 setSubmitted(false);
@@ -160,6 +161,36 @@ export function ReportHotspot({ onNavigate }: ReportHotspotProps) {
                 />
                 <p className="text-sm text-muted-foreground mt-2">
                   If available, provide latitude and longitude for precision
+                </p>
+              </div>
+
+              {/* Severity Level */}
+              <div>
+                <Label htmlFor="severity" className="mb-2 block">
+                  Severity Level
+                </Label>
+                <div className="grid grid-cols-3 gap-4">
+                  {(['critical', 'high', 'moderate'] as const).map((level) => (
+                    <button
+                      key={level}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, severity: level })}
+                      className={`p-4 rounded-xl border-2 transition-all ${
+                        formData.severity === level 
+                          ? level === 'critical' 
+                            ? 'border-destructive bg-destructive/10 text-destructive'
+                            : level === 'high'
+                            ? 'border-orange-500 bg-orange-500/10 text-orange-500'
+                            : 'border-accent bg-accent/10 text-accent'
+                          : 'border-border hover:border-primary/50'
+                      }`}
+                    >
+                      <span className="capitalize">{level}</span>
+                    </button>
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Select the severity level based on the scale and impact of deforestation
                 </p>
               </div>
 

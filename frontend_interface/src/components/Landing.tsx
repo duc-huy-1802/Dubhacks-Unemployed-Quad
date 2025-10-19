@@ -15,7 +15,7 @@ export function Landing({ onNavigate }: LandingProps) {
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <ImageWithFallback 
-            src="https://images.unsplash.com/photo-1758344108550-187c9a9175ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBjYW5vcHklMjBhYm92ZXxlbnwxfHx8fDE3NjA4MjM4NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://images.unsplash.com/photo-1758344108550-187c9a9175ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBjYW5vcHklMjBhYm92ZXxlbnwxfHx8fDE3NjA4MjM4NTZ8MA&ixlib=rb-4.0.1&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Forest canopy"
             className="w-full h-full object-cover blur-[2px] scale-105"
           />

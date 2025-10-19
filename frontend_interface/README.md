@@ -1,7 +1,6 @@
 
-  # Modern Minimalistic Web Interface
+  # Gogreen project
 
-  This is a code bundle for Modern Minimalistic Web Interface. The original project is available at https://www.figma.com/design/AIfu7knga6k38Bzw9FTQdT/Modern-Minimalistic-Web-Interface.
 
   ## Running the code
 

@@ -77,27 +77,6 @@ npm test
 
 ---
 
-## 🧱 Project Structure (excerpt)
-
-```
-frontend_interface/
-├─ src/
-│  ├─ components/
-│  │  └─ ui/
-│  │     ├─ menubar.tsx
-│  │     └─ sheet.tsx
-│  ├─ assets/            # images, fonts, etc. (optional)
-│  ├─ pages/ or app/     # depending on router / framework
-│  ├─ hooks/             # custom React hooks (optional)
-│  ├─ lib/               # util modules (optional)
-│  └─ index.tsx / main.tsx
-├─ public/               # static assets
-├─ package.json
-└─ tsconfig.json
-```
-
----
-
 ## 🧩 UI Icons & Components
 
 ### lucide-react
@@ -140,23 +119,7 @@ If VS Code gets stuck, run **Command Palette → “TypeScript: Restart TS Serve
 
 ---
 
-## 🔒 Environment Variables
 
-Create a `.env` file in the project root for your keys.
-
-- For **Vite**, expose variables with `VITE_` prefix:
-  ```env
-  VITE_API_URL=https://api.example.com
-  ```
-
-- For **Next.js**, use `NEXT_PUBLIC_` prefix for client-exposed vars:
-  ```env
-  NEXT_PUBLIC_API_URL=https://api.example.com
-  ```
-
-Never commit secrets. Add `.env` to `.gitignore`.
-
----
 
 ## 🛠️ Troubleshooting
 

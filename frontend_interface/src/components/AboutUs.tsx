@@ -1,7 +1,6 @@
-import { Mail, Linkedin, Target, Heart, Users, Globe } from 'lucide-react';
+import { Mail, Target, Heart, Users, Globe, Eye, Flag, Sprout } from 'lucide-react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface AboutUsProps {
   onNavigate: (page: string) => void;
@@ -15,28 +14,20 @@ export function AboutUs({ onNavigate }: AboutUsProps) {
 
   const teamMembers = [
     {
-      name: 'Sarah Chen',
-      role: 'Founder & CEO',
-      image: 'https://images.unsplash.com/photo-1570170609489-43197f518df0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHBlcnNvbnxlbnwxfHx8fDE3NjA3MzEzMjl8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      linkedin: '#',
+      name: 'Jenny Hoang',
+      role: 'Project Manager',
     },
     {
-      name: 'Marcus Johnson',
+      name: 'Thu Doan',
       role: 'Lead Developer',
-      image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyMnx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXQlMjBwZXJzb258ZW58MXx8fHwxNzYwNzMxMzI5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      linkedin: '#',
     },
     {
-      name: 'Elena Rodriguez',
-      role: 'Design Director',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHBlcnNvbnxlbnwxfHx8fDE3NjA3MzEzMjl8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      linkedin: '#',
+      name: 'Henry Nguyen',
+      role: 'Full-Stack Engineer',
     },
     {
-      name: 'James Park',
-      role: 'Outreach Lead',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHBlcnNvbnxlbnwxfHx8fDE3NjA3MzEzMjl8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      linkedin: '#',
+      name: 'Tri Nguyen',
+      role: 'Back-end Developer',
     },
   ];
 
@@ -45,58 +36,136 @@ export function AboutUs({ onNavigate }: AboutUsProps) {
       {/* Hero Section */}
       <section className="py-20 px-6 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-foreground mb-6">About Releaf</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Empowering communities worldwide to protect and restore our planet's forests through technology and collaboration.
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            About Releaf
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Bridging the gap between environmental crisis and community action through technology and collaboration.
           </p>
         </div>
       </section>
 
-      {/* Mission Section */}
+      {/* Inspiration Section */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <Card className="p-8 md:p-12 rounded-2xl border-2 border-border">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-                <Target className="text-white" size={24} />
+          <Card className="p-8 md:p-12 rounded-2xl border-2 border-border shadow-lg">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-md">
+                <Target className="text-white" size={28} />
               </div>
-              <h2 className="text-foreground">Our Mission</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Our Inspiration</h2>
             </div>
-            <p className="text-muted-foreground mb-6">
-              Releaf was founded in 2020 with a simple yet powerful mission: to democratize forest conservation by connecting technology, local communities, and environmental action. We believe that protecting our planet's forests requires both cutting-edge innovation and grassroots involvement.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+              Deforestation is accelerating at an alarming rate, threatening biodiversity, climate stability, and the livelihoods of communities worldwide. We witnessed this crisis firsthand and knew we had to act.
             </p>
-            <p className="text-muted-foreground mb-6">
-              Every year, millions of hectares of forest are lost to deforestation, threatening biodiversity, accelerating climate change, and displacing indigenous communities. Traditional conservation efforts often struggle with limited resources, delayed detection, and inadequate local engagement.
-            </p>
-            <p className="text-muted-foreground">
-              That's where Releaf comes in. By combining AI-powered satellite monitoring with crowdsourced reporting and coordinated restoration events, we're creating a global network that can detect threats early, respond quickly, and make lasting change. Together, we're not just watching forests disappear—we're actively restoring them.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              But we also saw another problem: passionate volunteers struggling to find legitimate, impactful opportunities, while conservation organizations desperately need help but lack the network to recruit effectively. We built Releaf to bridge that gap — making it easy for anyone to find meaningful ways to help protect our forests.
             </p>
           </Card>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="py-16 px-6 bg-muted">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-foreground mb-12">
+            The Problem We're Solving
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="p-8 rounded-2xl">
+              <h3 className="text-xl font-semibold text-foreground mb-4">🌍 The Environmental Crisis</h3>
+              <p className="text-muted-foreground">
+                Every year, millions of hectares of forest are lost to deforestation. Traditional conservation efforts struggle with limited resources, delayed detection, and inadequate coordination between organizations and volunteers.
+              </p>
+            </Card>
+
+            <Card className="p-8 rounded-2xl">
+              <h3 className="text-xl font-semibold text-foreground mb-4">🔗 The Connection Gap</h3>
+              <p className="text-muted-foreground">
+                There's no centralized platform connecting volunteers with conservation organizations. People who want to help face endless searching, while parks and NGOs can't find the volunteers they need. This broken network means fewer trees planted and less impact.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Approach Section */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Our Approach
+          </h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            We tackle deforestation through three interconnected pillars
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="p-6 rounded-2xl text-center hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="text-primary" size={28} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Detect</h3>
+              <p className="text-sm text-muted-foreground">
+                We bring transparency to deforestation data through interactive mapping, making forest loss visible and accessible to everyone.
+              </p>
+            </Card>
+
+            <Card className="p-6 rounded-2xl text-center hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Flag className="text-primary" size={28} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Report</h3>
+              <p className="text-sm text-muted-foreground">
+                We empower individuals to become environmental watchdogs, creating a community-driven early warning system for forest threats.
+              </p>
+            </Card>
+
+            <Card className="p-6 rounded-2xl text-center hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Sprout className="text-primary" size={28} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Restore</h3>
+              <p className="text-sm text-muted-foreground">
+                We connect volunteers with hands-on opportunities to plant trees, monitor forests, and educate communities through our smart matching system.
+              </p>
+            </Card>
+          </div>
         </div>
       </section>
 
       {/* Values Section */}
       <section className="py-16 px-6 bg-muted">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center text-foreground mb-12">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-foreground mb-12">
+            Our Values
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="p-6 rounded-2xl text-center">
               <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="text-primary" size={28} />
+                <Users className="text-primary" size={28} />
               </div>
-              <h3 className="text-foreground mb-3">Community First</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Accessibility</h3>
               <p className="text-sm text-muted-foreground">
-                Local communities are at the heart of everything we do. Their knowledge and involvement are essential to lasting change.
+                Conservation shouldn't require expertise. We welcome everyone from students to retirees, coders to teachers.
               </p>
             </Card>
 
             <Card className="p-6 rounded-2xl text-center">
               <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="text-primary" size={28} />
+                <Target className="text-primary" size={28} />
               </div>
-              <h3 className="text-foreground mb-3">Transparency</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Impact</h3>
               <p className="text-sm text-muted-foreground">
-                We provide verified data and measurable impact metrics so you can see exactly where your efforts are making a difference.
+                Every feature we build asks: "Will this help save more trees?" We measure success in hectares restored and lives changed.
+              </p>
+            </Card>
+
+            <Card className="p-6 rounded-2xl text-center">
+              <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="text-primary" size={28} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Transparency</h3>
+              <p className="text-sm text-muted-foreground">
+                We believe in honest information about both the crisis we face and the solutions that work. See exactly where your efforts make a difference.
               </p>
             </Card>
 
@@ -104,9 +173,9 @@ export function AboutUs({ onNavigate }: AboutUsProps) {
               <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="text-primary" size={28} />
               </div>
-              <h3 className="text-foreground mb-3">Global Impact</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Community</h3>
               <p className="text-sm text-muted-foreground">
-                While we act locally, we think globally—building a worldwide network of forest defenders and restorers.
+                Alone we can do little. Together, we can restore forests and inspire global change through collective action.
               </p>
             </Card>
           </div>
@@ -116,30 +185,21 @@ export function AboutUs({ onNavigate }: AboutUsProps) {
       {/* Team Section */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center text-foreground mb-4">Meet Our Team</h2>
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Meet Our Team
+          </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            A diverse group of technologists, environmentalists, and community organizers united by a common goal.
+            Built by people who care, for people who want to make a difference.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {teamMembers.map((member) => (
               <Card key={member.name} className="p-6 rounded-2xl text-center hover:shadow-xl transition-shadow">
-                <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
-                  <ImageWithFallback
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center border-4 border-primary/20">
+                  <Users className="text-primary" size={48} />
                 </div>
-                <h3 className="text-foreground mb-1">{member.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{member.role}</p>
-                <a
-                  href={member.linkedin}
-                  className="inline-flex items-center justify-center w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full transition-colors"
-                  aria-label={`${member.name} LinkedIn`}
-                >
-                  <Linkedin className="text-primary" size={18} />
-                </a>
+                <h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
+                <p className="text-sm text-muted-foreground">{member.role}</p>
               </Card>
             ))}
           </div>
@@ -149,38 +209,27 @@ export function AboutUs({ onNavigate }: AboutUsProps) {
       {/* Contact CTA Section */}
       <section className="py-16 px-6 bg-primary/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-foreground mb-4">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Ready to Make an Impact?
+          </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Have questions? Want to partner with us? We'd love to hear from you.
+            Join us in the fight against deforestation. Whether you're a volunteer, organization, or supporter, there's a place for you in the Releaf community.
           </p>
-          <Button
-            onClick={scrollToContact}
-            className="bg-primary hover:bg-primary/90 text-white rounded-xl gap-2"
-          >
-            <Mail size={18} />
-            Contact Us
-          </Button>
-        </div>
-      </section>
-
-      {/* Stats Banner */}
-      <section className="py-12 px-6 bg-secondary text-white">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-3xl mb-2">2020</div>
-            <p className="text-sm opacity-80">Founded</p>
-          </div>
-          <div>
-            <div className="text-3xl mb-2">45+</div>
-            <p className="text-sm opacity-80">Countries</p>
-          </div>
-          <div>
-            <div className="text-3xl mb-2">200+</div>
-            <p className="text-sm opacity-80">Partner Organizations</p>
-          </div>
-          <div>
-            <div className="text-3xl mb-2">15K+</div>
-            <p className="text-sm opacity-80">Community Members</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button
+              onClick={() => onNavigate('get-involved')}
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 text-lg"
+            >
+              Get Involved
+            </Button>
+            <Button
+              onClick={scrollToContact}
+              variant="outline"
+              className="rounded-xl px-8 py-6 text-lg gap-2"
+            >
+              <Mail size={18} />
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>

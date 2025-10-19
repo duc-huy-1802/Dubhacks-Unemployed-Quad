@@ -35,22 +35,6 @@ export function Footer({ onNavigate }: FooterProps) {
                   How It Works
                 </button>
               </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate?.('impact')}
-                  className="hover:text-accent transition-colors"
-                >
-                  Success Stories
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate?.('impact')}
-                  className="hover:text-accent transition-colors"
-                >
-                  Blog
-                </button>
-              </li>
             </ul>
           </div>
           

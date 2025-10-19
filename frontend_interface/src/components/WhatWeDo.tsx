@@ -11,7 +11,7 @@ export function WhatWeDo({ onNavigate }: WhatWeDoProps) {
       {/* Hero Section */}
       <section className="py-20 px-6 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-foreground mb-6">What We Do</h1>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">What We Do</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Releaf combines cutting-edge technology with community action to protect and restore our planet's forests.
           </p>
@@ -26,7 +26,7 @@ export function WhatWeDo({ onNavigate }: WhatWeDoProps) {
             <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6">
               <Search className="text-white" size={32} />
             </div>
-            <h3 className="text-foreground mb-4">Detect</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Detect</h3>
             <p className="text-muted-foreground">
               AI and crowdsourced data identify deforestation hotspots in real time.
             </p>
@@ -53,9 +53,9 @@ export function WhatWeDo({ onNavigate }: WhatWeDoProps) {
             <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6">
               <MapPin className="text-white" size={32} />
             </div>
-            <h3 className="text-foreground mb-4">Report</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Report</h3>
             <p className="text-muted-foreground">
-              Report deforestation areas with geotagged photos and descriptions.
+              Report deforestation areas with geotagged photos, descriptions, sevirity.
             </p>
             <div className="mt-6 pt-6 border-t border-border">
               <ul className="space-y-2 text-sm text-muted-foreground">

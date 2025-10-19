@@ -21,7 +21,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
               <span className="text-white">🌱</span>
             </div>
-            <span className="text-foreground">Releaf</span>
+            <span className="text-foreground font-bold text-xl">Releaf</span>
           </button>
 
           {/* Desktop Navigation */}
@@ -37,12 +37,6 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               className={`text-foreground hover:text-primary transition-colors ${currentPage === 'what-we-do' ? 'text-primary' : ''}`}
             >
               What We Do
-            </button>
-            <button 
-              onClick={() => onNavigate?.('impact')}
-              className={`text-foreground hover:text-primary transition-colors ${currentPage === 'impact' ? 'text-primary' : ''}`}
-            >
-              Impact
             </button>
             <button 
               onClick={() => onNavigate?.('about-us')}

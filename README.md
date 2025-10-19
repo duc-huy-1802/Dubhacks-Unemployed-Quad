@@ -1,4 +1,4 @@
-# Frontend Interface
+# ReLeaf
 
 A React + TypeScript front‑end project. This README gives you everything you need to install dependencies, run the app locally, and understand the repo layout. It also includes fixes for common issues like `Cannot find module 'lucide-react'` and a clean checklist for collaborators.
 

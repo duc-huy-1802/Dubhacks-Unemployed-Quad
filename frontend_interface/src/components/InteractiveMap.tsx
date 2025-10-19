@@ -43,10 +43,16 @@ const createSeverityIcon = (color: string) => {
 
 
 
+const severityColors = {
+  critical: '#ef4444', // red
+  high: '#f97316',    // orange
+  moderate: '#22c55e', // green
+};
+
 const severityIcons = {
-  critical: createSeverityIcon('#ef4444'), // red
-  high: createSeverityIcon('#f97316'), // orange
-  moderate: createSeverityIcon('#22c55e'), // green
+  critical: createSeverityIcon(severityColors.critical),
+  high: createSeverityIcon(severityColors.high),
+  moderate: createSeverityIcon(severityColors.moderate),
 };
 
 interface InteractiveMapProps {
@@ -61,17 +67,34 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({ hotspots, onMarkerClick
     : [0, 0];
 
   return (
-    <MapContainer
-      center={center as [number, number]}
-      zoom={3}
-      style={{ height: '100%', width: '100%' }}
-      className="z-0"
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {hotspots.map((hotspot) => (
+    <div className="relative h-full w-full">
+      {/* Legend */}
+      <div style={{ position: 'absolute', top: '1rem', left: '1rem', zIndex: 999998 }} className="p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg">
+        <h4 className="text-foreground mb-3 font-medium">Deforestation Severity</h4>
+        <div className="space-y-2">
+          {Object.entries(severityColors).reverse().map(([severity, color]) => (
+            <div key={severity} className="flex items-center gap-2 text-sm">
+              <div 
+                className="w-3 h-3 rounded-full" 
+                style={{ backgroundColor: color, boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }} 
+              />
+              <span className="capitalize text-muted-foreground">{severity}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <MapContainer
+        center={center as [number, number]}
+        zoom={3}
+        style={{ height: '100%', width: '100%' }}
+        className="z-0"
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {hotspots.map((hotspot) => (
           <Marker
             key={hotspot.id}
             position={[hotspot.lat, hotspot.lng]}
@@ -89,7 +112,8 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({ hotspots, onMarkerClick
             </Popup>
           </Marker>
         ))}
-    </MapContainer>
+      </MapContainer>
+    </div>
   );
 };
 

@@ -151,32 +151,37 @@ export function HotspotMap({ onNavigate }: HotspotMapProps) {
 
       {/* Map Container */}
       <div className="flex-1 relative bg-gradient-to-br from-primary/5 to-secondary/10">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-full h-full">
-            {/* Interactive Map */}
-            <InteractiveMap hotspots={hotspots} onMarkerClick={handleHotspotClick} />
+        {/* Map Container */}
+        <div className="absolute inset-0">
+          <InteractiveMap hotspots={hotspots} onMarkerClick={handleHotspotClick} />
+        </div>
 
-            {/* Legend */}
-            <Card className="absolute top-6 left-6 p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg">
-              <h4 className="text-foreground mb-3">Deforestation Severity</h4>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="w-3 h-3 bg-destructive rounded-full"></div>
-                  <span className="text-muted-foreground">Critical</span>
+        {/* Overlay Container - ensures all overlays stay above map */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="relative w-full h-full">
+            {/* Stats Card */}
+            <Card 
+              className="absolute top-6 right-6 p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg pointer-events-auto"
+              style={{ zIndex: 999997 }}
+            >
+              <h4 className="text-foreground mb-3">Global Overview</h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between gap-8">
+                  <span className="text-muted-foreground">Active Hotspots:</span>
+                  <span className="text-foreground">{hotspots.length}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                  <span className="text-muted-foreground">High</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="w-3 h-3 bg-accent rounded-full"></div>
-                  <span className="text-muted-foreground">Moderate</span>
+                <div className="flex justify-between gap-8">
+                  <span className="text-muted-foreground">Total Area Lost:</span>
+                  <span className="text-foreground">
+                    {hotspots.reduce((sum, h) => sum + h.areaLost, 0).toLocaleString()} ha
+                  </span>
                 </div>
               </div>
             </Card>
-
-            {/* Stats Card */}
-            <Card className="absolute top-6 right-6 p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg">
+            <Card 
+              className="absolute top-6 right-6 p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg pointer-events-auto"
+              style={{ zIndex: 999997 }}
+            >
               <h4 className="text-foreground mb-3">Global Overview</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between gap-8">
@@ -200,7 +205,7 @@ export function HotspotMap({ onNavigate }: HotspotMapProps) {
             className={`absolute bottom-0 left-0 right-0 bg-white border-t border-border shadow-2xl transition-transform duration-300 ${
               drawerOpen ? 'translate-y-0' : 'translate-y-[calc(100%-4rem)]'
             }`}
-            style={{ maxHeight: '60vh' }}
+            style={{ maxHeight: '60vh', zIndex: 999997 }}
           >
             {/* Drawer Handle */}
             <button

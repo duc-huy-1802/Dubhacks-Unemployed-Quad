@@ -1,6 +1,5 @@
-* {
-  font-family: 'Georgia', Times, serif !important;
-}
+/* Import Poppins and Montserrat for the brand and navigation */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap');
 /*! tailwindcss v4.1.3 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
@@ -74,7 +73,8 @@
 
 @layer theme {
   :root, :host {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* Prefer Poppins (brand) then Montserrat, fall back to system sans */
+  --font-sans: 'Poppins', 'Montserrat', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-100: oklch(.936 .032 17.717);
     --color-red-700: oklch(.505 .213 27.518);
@@ -2902,7 +2902,7 @@
   --popover-foreground: #2c3e2a;
   --primary: #3d5a3c;
   --primary-foreground: #fff;
-  --secondary: #4a5d48;
+  --secondary: #082105;
   --secondary-foreground: #fff;
   --muted: #e8ebe5;
   --muted-foreground: #6b7669;

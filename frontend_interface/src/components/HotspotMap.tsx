@@ -5,6 +5,7 @@ import { useState } from 'react';
 import InteractiveMap from './InteractiveMap';
 import 'leaflet/dist/leaflet.css';
 
+
 interface HotspotMapProps {
   onNavigate: (page: string) => void;
 }

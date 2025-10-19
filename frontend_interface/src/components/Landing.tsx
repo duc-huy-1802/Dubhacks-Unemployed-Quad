@@ -12,16 +12,17 @@ export function Landing({ onNavigate }: LandingProps) {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Blur */}
+
+        {/* Background Image */}
         <div className="absolute inset-0">
           <ImageWithFallback 
-            src="https://images.unsplash.com/photo-1758344108550-187c9a9175ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBjYW5vcHklMjBhYm92ZXxlbnwxfHx8fDE3NjA4MjM4NTZ8MA&ixlib=rb-4.0.1&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="/dmitry-spravko-H0lLrKGq6N0-unsplash.jpg"
             alt="Forest canopy"
-            className="w-full h-full object-cover blur-[2px] scale-105"
+            className="w-full h-full object-cover scale-105"
           />
         </div>
-        {/* Dark Overlay for Readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/70 to-secondary/90 z-10" />
+        {/* Dark Overlay for readability */}
+        <div className="absolute inset-0 bg-black/50" />
         
         <div className="relative z-20 text-center px-6 max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">

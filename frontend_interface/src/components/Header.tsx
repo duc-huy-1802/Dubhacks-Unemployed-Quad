@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Leaf } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState } from 'react';
 
@@ -19,7 +19,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
             <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white">🌱</span>
+              <Leaf className="w-5 h-5 text-white" /> {/* <-- replaced emoji with Leaf icon */}
             </div>
             <span className="text-foreground font-bold text-xl">Releaf</span>
           </button>
@@ -28,25 +28,25 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           <nav className="hidden md:flex items-center gap-6">
             <button 
               onClick={() => onNavigate?.('landing')}
-              className={`text-foreground hover:text-primary transition-colors ${currentPage === 'landing' ? 'text-primary' : ''}`}
+              className={`text-foreground font-bold hover:text-primary transition-opacity ${currentPage === 'landing' ? 'opacity-60' : 'opacity-100'}`}
             >
               Home
             </button>
             <button 
               onClick={() => onNavigate?.('what-we-do')}
-              className={`text-foreground hover:text-primary transition-colors ${currentPage === 'what-we-do' ? 'text-primary' : ''}`}
+              className={`text-foreground font-bold hover:text-primary transition-opacity ${currentPage === 'what-we-do' ? 'opacity-60' : 'opacity-100'}`}
             >
               What We Do
             </button>
             <button 
               onClick={() => onNavigate?.('about-us')}
-              className={`text-foreground hover:text-primary transition-colors ${currentPage === 'about-us' ? 'text-primary' : ''}`}
+              className={`text-foreground font-bold hover:text-primary transition-opacity ${currentPage === 'about-us' ? 'opacity-60' : 'opacity-100'}`}
             >
               About Us
             </button>
             <Button 
               onClick={() => onNavigate?.('get-involved')}
-              className="bg-accent hover:bg-accent/90 text-white rounded-xl"
+              className={`bg-accent font-bold hover:bg-accent/90 text-white rounded-xl transition-opacity ${currentPage === 'get-involved' ? 'opacity-60' : 'opacity-100'}`}
             >
               Get Involved
             </Button>
@@ -69,7 +69,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                 onNavigate?.('landing');
                 setMobileMenuOpen(false);
               }}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors"
+              className={`block w-full text-left text-foreground font-bold hover:text-primary transition-opacity ${currentPage === 'landing' ? 'opacity-60' : 'opacity-100'}`}
             >
               Home
             </button>
@@ -78,7 +78,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                 onNavigate?.('what-we-do');
                 setMobileMenuOpen(false);
               }}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors"
+              className={`block w-full text-left text-foreground font-bold hover:text-primary transition-opacity ${currentPage === 'what-we-do' ? 'opacity-60' : 'opacity-100'}`}
             >
               What We Do
             </button>
@@ -87,7 +87,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                 onNavigate?.('impact');
                 setMobileMenuOpen(false);
               }}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors"
+              className={`block w-full text-left text-foreground font-bold hover:text-primary transition-opacity ${currentPage === 'impact' ? 'opacity-60' : 'opacity-100'}`}
             >
               Impact
             </button>
@@ -96,7 +96,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                 onNavigate?.('about-us');
                 setMobileMenuOpen(false);
               }}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors"
+              className={`block w-full text-left text-foreground font-bold hover:text-primary transition-opacity ${currentPage === 'about-us' ? 'opacity-60' : 'opacity-100'}`}
             >
               About Us
             </button>
@@ -105,7 +105,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                 onNavigate?.('get-involved');
                 setMobileMenuOpen(false);
               }}
-              className="w-full bg-accent hover:bg-accent/90 text-white rounded-xl"
+              className={`w-full bg-accent font-bold hover:bg-accent/90 text-white rounded-xl transition-opacity ${currentPage === 'get-involved' ? 'opacity-60' : 'opacity-100'}`}
             >
               Get Involved
             </Button>

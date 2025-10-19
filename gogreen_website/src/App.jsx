@@ -28,7 +28,6 @@ return (
 <Research />
 <Experiences />
 <Testimonial />
-<Contact />
 <Footer/>
 </div>
 );

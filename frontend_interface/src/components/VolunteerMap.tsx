@@ -103,8 +103,8 @@ export function VolunteerMap({ onNavigate }: VolunteerMapProps) {
           </div>
 
           {/* Quiz CTA */}
-          <div className="absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80">
-            <Card className="p-4 rounded-2xl shadow-xl bg-[#1F1F12] text-white border-0">
+          <div style={{ position: 'fixed', bottom: '1rem', left: '1rem', zIndex: 999999 }} className="w-80">
+            <Card className="p-4 rounded-2xl shadow-xl bg-[#1F1F12] text-white border-0 hover:shadow-2xl transition-shadow">
               <p className="mb-2">Not sure where to start?</p>
               <Button
                 onClick={() => onNavigate('quiz')}

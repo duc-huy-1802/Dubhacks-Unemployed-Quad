@@ -2,12 +2,14 @@ import { MapPin, X, ArrowLeft, Sprout, ChevronUp, AlertTriangle } from 'lucide-r
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { useState } from 'react';
+import InteractiveMap from './InteractiveMap';
+import 'leaflet/dist/leaflet.css';
 
 interface HotspotMapProps {
   onNavigate: (page: string) => void;
 }
 
-interface Hotspot {
+export interface Hotspot {
   id: number;
   name: string;
   location: string;
@@ -149,47 +151,10 @@ export function HotspotMap({ onNavigate }: HotspotMapProps) {
 
       {/* Map Container */}
       <div className="flex-1 relative bg-gradient-to-br from-primary/5 to-secondary/10">
-        {/* Map Background - Simulated Global View */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-full h-full max-w-7xl">
-            {/* Grid overlay for map feel */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="grid grid-cols-12 grid-rows-8 h-full">
-                {Array.from({ length: 96 }).map((_, i) => (
-                  <div key={i} className="border border-primary/20"></div>
-                ))}
-              </div>
-            </div>
-
-            {/* Hotspot Markers */}
-            {hotspots.map((hotspot) => (
-              <button
-                key={hotspot.id}
-                onClick={() => handleHotspotClick(hotspot)}
-                className="absolute group transition-transform hover:scale-110"
-                style={{
-                  // Position based on lat/lng (simplified positioning)
-                  left: `${((hotspot.lng + 180) / 360) * 100}%`,
-                  top: `${((90 - hotspot.lat) / 180) * 100}%`,
-                }}
-              >
-                {/* Pulsing effect */}
-                <div className={`absolute inset-0 w-8 h-8 -translate-x-1/2 -translate-y-1/2 ${getSeverityDotColor(hotspot.severity)} rounded-full opacity-30 animate-ping`}></div>
-                
-                {/* Marker */}
-                <div className={`relative w-8 h-8 -translate-x-1/2 -translate-y-1/2 ${getSeverityDotColor(hotspot.severity)} rounded-full border-2 border-white shadow-lg flex items-center justify-center`}>
-                  <AlertTriangle className="text-white" size={16} />
-                </div>
-                
-                {/* Tooltip on hover */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 hidden group-hover:block">
-                  <div className="bg-white px-3 py-2 rounded-lg shadow-xl whitespace-nowrap text-sm">
-                    <p className="text-foreground">{hotspot.name}</p>
-                    <p className="text-muted-foreground text-xs">{hotspot.areaLost.toLocaleString()} hectares</p>
-                  </div>
-                </div>
-              </button>
-            ))}
+          <div className="relative w-full h-full">
+            {/* Interactive Map */}
+            <InteractiveMap hotspots={hotspots} onMarkerClick={handleHotspotClick} />
 
             {/* Legend */}
             <Card className="absolute top-6 left-6 p-4 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg">

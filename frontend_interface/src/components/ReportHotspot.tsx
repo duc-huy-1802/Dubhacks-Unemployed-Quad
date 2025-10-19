@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MapPin, Upload, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { Card } from './ui/card';
+import InteractiveMap from './InteractiveMap';
+import { Hotspot } from './HotspotMap';
 
 interface ReportHotspotProps {
   onNavigate: (page: string) => void;
@@ -18,6 +20,42 @@ export function ReportHotspot({ onNavigate }: ReportHotspotProps) {
   });
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [previewHotspot, setPreviewHotspot] = useState<Hotspot | null>(null);
+
+  const parseCoordinates = (coordString: string): { lat: number; lng: number } | null => {
+    try {
+      const [lat, lng] = coordString.split(',').map(str => parseFloat(str.trim()));
+      if (!isNaN(lat) && !isNaN(lng) && lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180) {
+        return { lat, lng };
+      }
+    } catch {
+      // Invalid format
+    }
+    return null;
+  };
+
+  useEffect(() => {
+    // Update preview when coordinates change
+    if (formData.coordinates) {
+      const coords = parseCoordinates(formData.coordinates);
+      if (coords) {
+        setPreviewHotspot({
+          id: 1,
+          name: 'Report Location',
+          location: formData.location || 'New Location',
+          lat: coords.lat,
+          lng: coords.lng,
+          severity: 'moderate',
+          areaLost: 0,
+          description: formData.description || 'New report location'
+        });
+      } else {
+        setPreviewHotspot(null);
+      }
+    } else {
+      setPreviewHotspot(null);
+    }
+  }, [formData.coordinates, formData.location, formData.description]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -47,6 +85,7 @@ export function ReportHotspot({ onNavigate }: ReportHotspotProps) {
               onClick={() => {
                 setFormData({ location: '', description: '', coordinates: '' });
                 setSelectedFile(null);
+                setPreviewHotspot(null);
                 setSubmitted(false);
               }}
               variant="outline"
@@ -125,13 +164,22 @@ export function ReportHotspot({ onNavigate }: ReportHotspotProps) {
               </div>
 
               {/* Map Preview */}
-              <div className="w-full h-64 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center border-2 border-dashed border-border">
-                <div className="text-center p-6">
-                  <MapPin size={48} className="text-muted-foreground mx-auto mb-2" />
-                  <p className="text-muted-foreground">
-                    Map preview will appear here
-                  </p>
-                </div>
+              <div className="w-full h-64 rounded-xl overflow-hidden border border-border">
+                {previewHotspot ? (
+                  <InteractiveMap
+                    hotspots={[previewHotspot]}
+                    onMarkerClick={() => {}}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <MapPin size={48} className="text-muted-foreground mx-auto mb-2" />
+                      <p className="text-muted-foreground">
+                        Enter GPS coordinates to see location on map
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Description */}

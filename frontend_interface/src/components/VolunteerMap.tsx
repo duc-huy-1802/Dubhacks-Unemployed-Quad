@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { MapPin, Calendar, Users, Filter, X, Navigation } from 'lucide-react';
+import { MapPin, Calendar, Users, Filter, X } from 'lucide-react';
+import InteractiveMap from './InteractiveMap';
+import { Hotspot } from './HotspotMap';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
@@ -46,9 +48,27 @@ const mockEvents = [
   },
 ];
 
-const mockHotspots = [
-  { id: 1, location: 'Northern California', lat: 40.7128, lng: -122.2,severity: 'high' },
-  { id: 2, location: 'Southern Oregon', lat: 42.3265, lng: -122.8, severity: 'medium' },
+const mockHotspots: Hotspot[] = [
+  {
+    id: 1,
+    name: 'Northern California Deforestation',
+    location: 'Northern California',
+    lat: 40.7128,
+    lng: -122.2,
+    severity: 'high',
+    areaLost: 5000,
+    description: 'Significant deforestation due to wildfires and logging activities.'
+  },
+  {
+    id: 2,
+    name: 'Southern Oregon Forest Loss',
+    location: 'Southern Oregon',
+    lat: 42.3265,
+    lng: -122.8,
+    severity: 'moderate',
+    areaLost: 3200,
+    description: 'Forest degradation from urban expansion and agricultural development.'
+  },
 ];
 
 export function VolunteerMap({ onNavigate }: VolunteerMapProps) {
@@ -59,47 +79,17 @@ export function VolunteerMap({ onNavigate }: VolunteerMapProps) {
     <div className="min-h-screen bg-white">
       <div className="h-screen flex flex-col md:flex-row">
         {/* Map Area */}
-        <div className="flex-1 relative bg-gradient-to-br from-green-50 to-blue-50 order-2 md:order-1">
-          {/* Mock Map */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="w-24 h-24 bg-[#FFDE59] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Navigation size={48} className="text-[#1F1F12]" />
-              </div>
-              <p className="text-muted-foreground mb-2">Interactive Map</p>
-              <p className="text-sm text-muted-foreground max-w-xs">
-                Yellow markers represent events, green markers show reported hotspots
-              </p>
-            </div>
-          </div>
-
-          {/* Map Markers (Mock) */}
-          {mockEvents.map((event, index) => (
-            <button
-              key={event.id}
-              onClick={() => setSelectedEvent(event)}
-              className="absolute w-10 h-10 bg-[#FFDE59] rounded-full border-4 border-white shadow-lg hover:scale-110 transition-transform flex items-center justify-center cursor-pointer"
-              style={{
-                left: `${20 + index * 25}%`,
-                top: `${30 + index * 15}%`,
-              }}
-            >
-              <MapPin size={20} className="text-[#1F1F12]" />
-            </button>
-          ))}
-
-          {mockHotspots.map((hotspot, index) => (
-            <div
-              key={hotspot.id}
-              className="absolute w-10 h-10 bg-green-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center"
-              style={{
-                left: `${60 + index * 20}%`,
-                top: `${40 + index * 10}%`,
-              }}
-            >
-              <MapPin size={20} className="text-white" />
-            </div>
-          ))}
+        <div className="flex-1 relative order-2 md:order-1">
+          <InteractiveMap
+            hotspots={mockHotspots}
+            onMarkerClick={(hotspot) => {
+              // Find and select the corresponding event if exists
+              const event = mockEvents.find(e => e.lat === hotspot.lat && e.lng === hotspot.lng);
+              if (event) {
+                setSelectedEvent(event);
+              }
+            }}
+          />
 
           {/* Filter Button (Mobile) */}
           <div className="absolute top-4 right-4 md:hidden">

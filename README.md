@@ -4,7 +4,7 @@ A React + TypeScript front‑end project. This README gives you everything you n
 
 > If you want this README tailored to your exact code and scripts, share your `package.json` and any `README` notes you already have. I’ll auto‑fill commands and features.
 
----
+--- ## 🤝 Contributor: Duc Huy, Thu Doan, Jenny Nguyen, Minh Nguyen ---
 
 ## ✨ Features
 - React + TypeScript UI
